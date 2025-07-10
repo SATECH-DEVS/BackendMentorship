@@ -7,7 +7,7 @@ import AuthRoutes from "./routes/AuthRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
-
+const port =  process.env.PORT
 const app =express();
 //connecting to database
 connectDb();
@@ -19,4 +19,8 @@ app.use("/api/profile",profileRoutes)
 
 app.listen(8000, ()=>{
     console.log("Server is running")
+})
+
+app.get("/" ,(req,res)=>{
+res.json({message:"WELCOME TO BACKEND"})
 })
